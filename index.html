@@ -1,119 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Skate Spot Tracker</title>
-  <!-- Leaflet CSS -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet/dist/leaflet.css"
-  />
-  
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-    header {
-      background-color: #222;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-    #map {
-      height: 100%;
-      width: 100%;
-    }
-    .spot-info {
-      padding: 1rem;
-      background: white;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skate Spots Tracker</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        #map { height: 500px; width: 100%; margin: 20px auto; }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Skate Spot Tracker</h1>
-    <p>Find and share your favorite skate spots</p>
-  </header>
-  <div id="map"></div>
-  <!-- Leaflet JS -->
-  <script
-    src="https://unpkg.com/leaflet/dist/leaflet.js">
-  </script>
-  <script>
-    // Initialize the map
-    const map = L.map('map').setView([34.0522, -118.2437], 12); // Default to Los Angeles
-    // Load and display tile layer
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
-      maxZoom: 18
-    }).addTo(map);
+    <h1>Skate Spots Tracker</h1>
+    <p>Find and share the best skate spots!</p>
+    <div id="map"></div>
 
-    L.marker([34.0522, -118.2437])
-      .addTo(map)
-      .bindPopup('<b>Example Spot</b><br>Downtown LA Plaza')
-      .openPopup();
-
-      L.marker([44.573209, -123.279989])
-      .addTo(map)
-      .bindPopup('<b>Curb</b><br>C3')
-      .openPopup();
-
-      L.marker([44.573682, -123.280503])
-      .addTo(map)
-      .bindPopup('<b>Curb</b><br>C3')
-      .openPopup();
-
-      L.marker([44.574612, -123.278052])
-      .addTo(map)
-      .bindPopup('<b>Curb</b><br>CCP')
-      .openPopup();
-
-      L.marker([44.567829, -123.282112])
-      .addTo(map)
-      .bindPopup('<b>Ledge</b><br>OSU Campus')
-      .openPopup();
-
-      L.marker([44.567829, -123.282112])
-      .addTo(map)
-      .bindPopup('<b>Rounded Ledge</b><br>OSU Campus')
-      .openPopup();
-
-      L.marker([44.565682, -123.284870])
-      .addTo(map)
-      .bindPopup('<b>Natural Kicker</b><br>OSU Campus')
-      .openPopup();
-
-      L.marker([44.564263, -123.286749])
-      .addTo(map)
-      .bindPopup('<b>Manual Pad</b><br>OSU Campus')
-      .openPopup();
-
-      L.marker([44.565463, -123.281771])
-      .addTo(map)
-      .bindPopup('<b>Plaza</b><br>OSU Campus')
-      .openPopup();
-
-      L.marker([44.562988, -123.274549])
-      .addTo(map)
-      .bindPopup('<b>Triangle Ledges</b><br>OSU Campus')
-      .openPopup();
-
-      L.marker([44.562740, -123.275296])
-      .addTo(map)
-      .bindPopup('<b>More Triangle Ledges</b><br>OSU Campus')
-      .openPopup();
-
-      L.marker([44.562967, -123.274857])
-      .addTo(map)
-      .bindPopup('<b>Stage</b><br>OSU Campus')
-      .openPopup();
-
-      L.marker([44.561216, -123.278799])
-      .addTo(map)
-      .bindPopup('<b>Parking Garage</b><br>OSU Campus')
-      .openPopup();
-  </script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([40.7128, -74.0060], 12); // Default view (New York)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+        
+        // Example skate spot marker
+        L.marker([40.730610, -73.935242]).addTo(map)
+            .bindPopup('<b>Awesome Skate Spot</b><br>Best place for street skating.')
+            .openPopup();
+    </script>
 </body>
 </html>
