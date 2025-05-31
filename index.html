@@ -3,34 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Map with Custom Pins</title>
-
-    <!-- Leaflet CSS for the map styling -->
+    <title>Skate Spots</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-
     <style>
-        #map {
-            height: 500px;
-            width: 100%;
-        }
+        body { font-family: Arial, sans-serif; text-align: center; background: #000000; }
+        #map { height: 500px; width: 100%; margin: 20px auto; }
     </style>
 </head>
 <body>
-
-    <h1>My Interactive Map</h1>
+    <h1>Skate Spots</h1>
+    <p>Local spots (to be continued)</p>
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        // Initialize the map and set the view to a location
-        var map = L.map('map').setView([44.566637, -123.258586], 2);  // Coordinates for initial view (center of the map)
-
-        // Set up the map tiles (you can use any tile provider)
+        var map = L.map('map').setView([40.7128, -74.0060], 12); // Default view (New York)
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
+        
+        // Example skate spot marker
+        L.marker([40.730610, -73.935242]).addTo(map)
+            .bindPopup('<b>Awesome Skate Spot</b><br>Best place for street skating.')
+            .openPopup();
 
-        // Example locations to add as custom pins (you can add as many as you like)
         var locations = [
             {
                 lat: 44.573209, 
@@ -116,11 +112,8 @@
                 description: "Parking Garage.",
                 imageUrl: ""
             },
-            
-        ];
 
-        // Loop through each location and create a custom marker with a popup
-        locations.forEach(function(location) {
+            locations.forEach(function(location) {
             var marker = L.marker([location.lat, location.lng]).addTo(map);
 
             var popupContent = `
@@ -129,9 +122,8 @@
                 <p>${location.description}</p>
             `;
 
-            marker.bindPopup(popupContent);
-        });
-
+                marker.bindPopup(popupContent);
+            });
     </script>
 </body>
 </html>
