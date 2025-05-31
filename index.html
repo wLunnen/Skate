@@ -1,31 +1,83 @@
+ChatGPT
+
+Log in
+You said:
+Provide a basic index page that has a map with the ability to pin different locations that have custom names, images and descriptions
+ChatGPT said:
+Here’s a basic example of an HTML page that features a map using Leaflet.js (a popular open-source library for interactive maps). It allows you to pin locations with custom names, images, and descriptions.
+
+First, make sure to include the necessary libraries for Leaflet, which will handle the map functionality, and then you can add your custom pins.
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skate Spots Tracker</title>
+    <title>Interactive Map with Custom Pins</title>
+
+    <!-- Leaflet CSS for the map styling -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        #map { height: 500px; width: 100%; margin: 20px auto; }
+        #map {
+            height: 500px;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
-    <h1>Skate Spots Tracker</h1>
-    <p>Find and share the best skate spots!</p>
+
+    <h1>My Interactive Map</h1>
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        var map = L.map('map').setView([40.7128, -74.0060], 12); // Default view (New York)
+        // Initialize the map and set the view to a location
+        var map = L.map('map').setView([51.505, -0.09], 2);  // Coordinates for initial view (center of the map)
+
+        // Set up the map tiles (you can use any tile provider)
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
-        
-        // Example skate spot marker
-        L.marker([40.730610, -73.935242]).addTo(map)
-            .bindPopup('<b>Awesome Skate Spot</b><br>Best place for street skating.')
-            .openPopup();
+
+        // Example locations to add as custom pins (you can add as many as you like)
+        var locations = [
+            {
+                lat: 51.505, 
+                lng: -0.09,
+                name: "London",
+                description: "This is London, the capital city of the UK.",
+                imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/ec/London_eye_-_looking_up.jpg"
+            },
+            {
+                lat: 40.7128,
+                lng: -74.0060,
+                name: "New York",
+                description: "This is New York, the city that never sleeps.",
+                imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/51/NYC_skyline_%28HDR%29.jpg"
+            },
+            {
+                lat: 34.0522,
+                lng: -118.2437,
+                name: "Los Angeles",
+                description: "This is Los Angeles, the city of stars.",
+                imageUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Los_Angeles_Skyline_at_Sunset.jpg"
+            }
+        ];
+
+        // Loop through each location and create a custom marker with a popup
+        locations.forEach(function(location) {
+            var marker = L.marker([location.lat, location.lng]).addTo(map);
+
+            var popupContent = `
+                <h3>${location.name}</h3>
+                <img src="${location.imageUrl}" alt="${location.name}" width="100%" />
+                <p>${location.description}</p>
+            `;
+
+            marker.bindPopup(popupContent);
+        });
+
     </script>
 </body>
 </html>
