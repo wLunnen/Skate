@@ -1,5 +1,5 @@
 body {
-  background: no-repeat scroll url(https://i.postimg.cc/8CCP8R48/bw-bg.png);
+  background: url(https://i.postimg.cc/8CCP8R48/bw-bg.png) repeat center center / cover;
 }
 
 .footer {
