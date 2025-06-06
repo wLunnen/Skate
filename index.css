@@ -1,5 +1,21 @@
 body {
   background: url(https://i.postimg.cc/8CCP8R48/bw-bg.png) repeat center center / cover;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #000000;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+h1, p {
+    color: #ffffff;
+}
+
+#map {
+  height: calc(100vh - 30px);
+  width: 100%;
+  display: block;
 }
 
 .footer {
