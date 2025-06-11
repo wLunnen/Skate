@@ -39,6 +39,7 @@ h1, p {
 }
 
 .footer img {
+  margin: auto;
   width: 30px;
   height: 30px;
   transition: transform 0.3s ease;
