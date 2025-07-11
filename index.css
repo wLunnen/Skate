@@ -25,7 +25,7 @@ h1, p {
     right: 0;
     padding: auto;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    background: #000000;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -34,17 +34,17 @@ h1, p {
     z-index: 9999;
 }
 
-    .footer a {
-        margin: 0 10px;
-    }
+.footer a {
+    margin: 0 10px;
+}
 
-    .footer img {
-        margin: auto;
-        width: 30px;
-        height: 30px;
-        transition: transform 0.3s ease;
-    }
+.footer img {
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
 
-        .footer img:hover {
-            transform: scale(1.1);
-        }
+.footer img:hover {
+    transform: scale(1.1);
+}
