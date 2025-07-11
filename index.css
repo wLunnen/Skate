@@ -10,10 +10,12 @@ body {
 
 h1, p {
     color: #ffffff;
+    background: #000000;
+    z-index: 2;
 }
 
 #map {
-  height: calc(100vh - 30px);
+  height: 100%;
   width: 100%;
   display: block;
 }
@@ -49,4 +51,3 @@ h1, p {
   transform: scale(1.1);
 }
 
-/*this is not funny*/
