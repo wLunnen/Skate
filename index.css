@@ -10,12 +10,10 @@ body {
 
 h1, p {
     color: #ffffff;
-    background: #000000;
-    z-index: 2;
 }
 
 #map {
-  height: 100%;
+  height: calc(100vh-30px);
   width: 100%;
   display: block;
 }
@@ -50,4 +48,3 @@ h1, p {
 .footer img:hover {
   transform: scale(1.1);
 }
-
